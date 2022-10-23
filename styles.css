@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:lightgoldenrodyellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:769px) {
+    body {
+        zoom: 75%;
+    }
+}
+
+/* Layout */
+
+.container {
+    max-width: 550px;
+    border-radius: 45px;
+    margin-top: 50px;
+    padding-top: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex; 
+    border: 18px solid whitesmoke;
+    border-radius: 20px;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: whitesmoke 8px solid;
+
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: end; 
+    z-index: 1; 
+    position: absolute;
+    top: 500px;
+    bottom: 0;
+    right: 1;
+    left:1;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Typography */
+
+#liked, #unliked {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    right: 1;
+    left:1;
+    margin-left: 100px; 
+    transform: rotate(350deg);
+    color: whitesmoke;
+}
+
+#liked {
+   
+}
+
+#unliked {
+   
+}
+
+#name {
+
+}
+
+#tagline{
+
+}
+
+/* Buttons and Images */
+
+button {
+    border-radius: 50px; 
+    border: none;
+    padding: 1rem;
+    box-shadow: ;
+    background-color: #E9E9EA;
+}
+
+#like-btn {
+    margin: 1.5rem 0rem 1.5rem 0.75rem;
+    background: linear-gradient(to bottom, #00D894  0%, #56E9CD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+#unlike-btn { 
+    padding: 1rem 1.45rem 1rem 1.45rem;
+    margin: 1.5rem 0.75rem 1.5rem 0rem;
+    background: linear-gradient(to bottom, #E82D70 0%,  #F06957 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+i {
+    font-size: 2rem;
+}
+
+.fa-mark {
+}
+
+.fa-bone {
+}
+
+img {
+    width: 90%;
+}
+
+#dog {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.profile, .chat {
+   max-width: 34px;
+}
+
+.logo {
+    max-width: 84px;
+}
+
+
