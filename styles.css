@@ -23,7 +23,7 @@ body {
     border-radius: 45px;
     margin-top: 50px;
     padding-top: 10px;
-    background-color: whitesmoke;
+    background-color: #F8F8F8;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     display: flex;
     flex-direction: column;
@@ -31,17 +31,15 @@ body {
 
 header {
     display: flex; 
-    border: 18px solid whitesmoke;
+    border: 18px solid #F8F8F8;
     border-radius: 20px;
     justify-content: space-between;
     align-items: baseline;
 }
 
 main {
-    display: flex;
-    align-items: center;
     position: relative;
-    border: whitesmoke 8px solid;
+    border: #F8F8F8 8px solid;
     font-family: 'Poppins', sans-serif;
 
 }
@@ -68,39 +66,60 @@ footer {
 
 /* Typography */
 
-#liked, #unliked {
+#liked, #disliked {
     visibility: hidden;
+    font-size: 2.5rem;
+    font-weight: 800;
     z-index: 1;
     position: absolute;
     top: 50px;
     bottom: 0;
     right: 1;
     left:1;
-    margin-left: 100px; 
-    transform: rotate(350deg);
-    color: whitesmoke;
+    height: 110px;
+    padding: 5px 10px;
+    margin-left: 15px; 
+    transform: rotate(-30deg);
+    border: 1px solid; 
+    border-image-slice: 1;
+    border-width: 15px;
+}
+
+#liked, #like-btn {
+    background: linear-gradient(to left, #00D894  15%, #56E9CD 85%);
 }
 
 #liked {
-   
+    visibility: visible;
+    border-image-source:  linear-gradient(to left, #00D894  15%, #56E9CD 85%);
 }
 
-#unliked {
-   
+#disliked {
+    background: linear-gradient(to left, #E82D70  15%, #F06957 85%);
+    border-image-source: linear-gradient(to left, #E82D70  15%, #F06957 85%);
+}
+
+#disliked, #liked {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #name {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 2rem;
     margin-bottom: -25px;
     color: #F8F8F8;
-
 }
 
 #tagline{
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #B7B7B7;
+}
+
+i{
+    font-size: 2.15rem;
+    padding-top: 3.75px;
 }
 
 /* Buttons and Images */
@@ -108,34 +127,24 @@ footer {
 button {
     border-radius: 50px; 
     border: none;
-    padding: 1rem;
     margin-top: -50px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    font-size: 2rem;
 }
 
 #like-btn {
     margin: 1.5rem 0rem 1.5rem 0.75rem;
-    background: linear-gradient(to bottom, #00D894  0%, #56E9CD 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 1rem;
 }
 
-
-
-#unlike-btn { 
+#dislike-btn { 
     margin: 1.5rem 0.75rem 1.5rem 0rem;
     background-color: #F8F8F8;
     background-image: url(images/icon-cross.png);
     background-position: center;
     background-repeat: no-repeat;
-    padding: 2.15rem;
-}
-
-.fa-mark {
-}
-
-.fa-bone {
+    padding: 2.20rem;
 }
 
 img {
