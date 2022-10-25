@@ -62,12 +62,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -25px;
 }
 
 /* Typography */
 
 #liked, #disliked {
-    visibility: hidden;
     font-size: 2.5rem;
     font-weight: 800;
     z-index: 1;
@@ -90,11 +90,12 @@ footer {
 }
 
 #liked {
+    visibility: hidden;
     border-image-source:  linear-gradient(to left, #00D894  15%, #56E9CD 85%);
 }
 
 #disliked {
-    visibility: visible;
+    visibility: hidden;
     background: linear-gradient(to left, #E82D70  15%, #F06957 85%);
     border-image-source: linear-gradient(to left, #E82D70  15%, #F06957 85%);
 }
@@ -123,12 +124,15 @@ i{
     padding-bottom: 2px;
 }
 
+.visibility {
+    visibility: visible;
+}
+
 /* Buttons and Images */
 
 button {
     border-radius: 50px; 
     border: none;
-    margin-top: -50px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -139,6 +143,12 @@ button {
     padding: 1.025rem;
 }
 
+#like-btn:hover {
+    box-shadow: 0px 10px 20px #CCF1E6;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #dislike-btn { 
     margin: 1.5rem 0.75rem 1.5rem 0rem;
     background-color: #F8F8F8;
@@ -146,6 +156,10 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     padding: 2.20rem;
+}
+
+#dislike-btn:hover {
+    box-shadow: 0px 10px 20px #EDD9DF;
 }
 
 img {
