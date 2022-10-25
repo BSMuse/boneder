@@ -90,11 +90,11 @@ footer {
 }
 
 #liked {
-    visibility: visible;
     border-image-source:  linear-gradient(to left, #00D894  15%, #56E9CD 85%);
 }
 
 #disliked {
+    visibility: visible;
     background: linear-gradient(to left, #E82D70  15%, #F06957 85%);
     border-image-source: linear-gradient(to left, #E82D70  15%, #F06957 85%);
 }
@@ -136,7 +136,7 @@ button {
     margin: 1.5rem 0rem 1.5rem 0.75rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 1rem;
+    padding: 1.025rem;
 }
 
 #dislike-btn { 
