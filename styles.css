@@ -58,6 +58,14 @@ main {
     color: white;
 }
 
+.end-text {
+    min-height: 754px;
+    min-width: 500px;
+    border: #F8F8F8 8px solid;
+    text-align: center;
+
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -126,6 +134,10 @@ i{
 
 .visibility {
     visibility: visible;
+}
+
+.fa-dog {
+    font-size: 5rem;
 }
 
 /* Buttons and Images */
