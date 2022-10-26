@@ -63,8 +63,8 @@ main {
 
 @media (max-width:550px) {
     .end-text {
-        min-width: 470px;
-        min-height: 660px;
+        min-width: 465px;
+        min-height: 665px;
     }
 }
 
