@@ -63,7 +63,8 @@ main {
 
 @media (max-width:550px) {
     .end-text {
-        min-width: 475px;
+        min-width: 470px;
+        min-height: 750px;
         
     
     }
