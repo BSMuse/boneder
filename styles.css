@@ -11,12 +11,6 @@ body {
     zoom: 75%;
 }
 
-@media (min-width:769px) {
-    body {
-        zoom: 75%;
-    }
-}
-
 /* Layout */
 
 .container {
@@ -65,6 +59,14 @@ main {
     border: #F8F8F8 8px solid;
     text-align: center;
 
+} 
+
+@media (max-width:550px) {
+    .end-text {
+        min-width: 475px;
+        
+    
+    }
 }
 
 footer {
