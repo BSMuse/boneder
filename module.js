@@ -77,10 +77,10 @@ dislikeBtn.addEventListener('click', () => {
 
 // render function allows the "stamps" to disappear and set new dog data to method in dog.js 
 // ternary operator will detect if there is no new dog data to post, and if so, post the html below
-const render = () => {
+const render = async () => {
     document.getElementById('liked').style.visibility = 'hidden'
     document.getElementById('disliked').style.visibility = 'hidden'
-    document.querySelector(".contain-data").innerHTML = suitor.getDogHtml()
+    document.querySelector(".contain-data").innerHTML = await suitor.getDogHtml()
 } 
 
 render()
