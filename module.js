@@ -36,24 +36,21 @@ const getNewDog = async () => {
     try {
       const userData = await fetchJson("https://randomuser.me/api/");
       const dogData = await fetchJson("https://dog.ceo/api/breeds/image/random");
-      const jokeData = () => { 
-        let joke = ""
-        fetch("https://icanhazdadjoke.com", {
-            headers: {
-                Accept: 'application/json',
-            }
-        })
-    .then(res => res.json())
-    .then(data => joke = JSON.stringify(data.joke))
-    console.log(joke)
-        return joke
-    }
+      const jokeData = async () => {
+        const response = await fetch("https://icanhazdadjoke.com", {
+          headers: {
+            Accept: 'application/json',
+          }
+        });
+        const data = await response.json();
+        return data.joke;
+      };
   
       return new Dog({
         name: userData.results[0].name.first,
         age: userData.results[0].dob.age,
         avatar: dogData.message,
-        bio: jokeData(),
+        bio: await jokeData(),
         hasBeenSwiped: false,
         hasBeenLiked: false,
       });
