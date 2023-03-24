@@ -42,7 +42,7 @@ const getNewDog = async () => {
     return nextDogData ? new Dog(nextDogData) : {}
 }
 
-const suitor = getNewDog()
+let suitor = getNewDog()
 
 // this function disables buttons and call's the suitor variable to access the getNewDog function to shift to a new dog
 const dogTransition = () => {
