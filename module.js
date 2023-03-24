@@ -30,10 +30,10 @@ likeBtn.addEventListener('click', () => {
     .then(res => res.json())
     .then(data => console.log(data))
 
-    fetch("https://icanhazdadjoke.com/")
+    fetch("https://icanhazdadjoke.com/j/")
     .then(res => res.json())
     .then(data => console.log(data))
-    
+
     dogTransition()
     suitor.hasBeenLiked = true
     document.getElementById('liked').style.visibility = 'visible'
