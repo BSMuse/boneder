@@ -36,7 +36,7 @@ const getNewDog = async () => {
     try {
       const userData = await fetchJson("https://randomuser.me/api/");
       const dogData = await fetchJson("https://dog.ceo/api/breeds/image/random");
-      const jokeData = await fetchJson("https://icanhazdadjoke.com", {
+      const jokeData = await fetch("https://icanhazdadjoke.com", {
         headers: {
           Accept: 'application/json',
         }
