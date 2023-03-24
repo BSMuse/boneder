@@ -44,7 +44,7 @@ const getNewDog = async () => {
             }
         })
     .then(res => res.json())
-    .then(data => joke = data.joke)
+    .then(data => console.log(data.joke))
     console.log(joke)
         return joke
     }
