@@ -21,7 +21,7 @@ const dogTransition = () => {
     suitor = getNewDog()
 }
 
-likeBtn.addEventListener('click', () => {
+likeBtn.addEventListener('click', async () => {
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
     .then(data => console.log(data))
@@ -30,9 +30,11 @@ likeBtn.addEventListener('click', () => {
     .then(res => res.json())
     .then(data => console.log(data))
 
-    fetch("https://icanhazdadjoke.com/")
-    .then(res => res.json())
-    .then(data => console.log(data))
+    const response = await fetch("http://icanhazdadjoke.com", {
+        headers: {},
+      });
+      const joke = response.json();
+      console.log(joke);
 
     dogTransition()
     suitor.hasBeenLiked = true
