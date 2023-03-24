@@ -22,23 +22,38 @@ const bioJoke = async () => {
 };
 
 const getNewDog = async () => {
-  const nextDogData = {
-    name: await fetch("https://randomuser.me/api/")
-      .then((res) => res.json())
-      .then((data) => data.results[0].name.first),
-    avatar: await fetch("https://dog.ceo/api/breeds/image/random")
-      .then((res) => res.json())
-      .then((data) => data.message),
-    age: await fetch("https://randomuser.me/api/")
-      .then((res) => res.json())
-      .then((data) => data.results[0].dob.age),
-    bio: await bioJoke(),
-    hasBeenSwiped: false,
-    hasBeenLiked: false,
+    const [userData, dogData, jokeData] = await Promise.all([
+      fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data => ({
+          name: data.results[0].name.first,
+          age: data.results[0].dob.age,
+        })),
+      fetch('https://dog.ceo/api/breeds/image/random')
+        .then(res => res.json())
+        .then(data => ({
+          avatar: data.message,
+        })),
+      fetch('https://icanhazdadjoke.com', {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then(res => res.json())
+        .then(data => ({
+          bio: data.joke,
+        })),
+    ]);
+  
+    return new Dog({
+      ...userData,
+      ...dogData,
+      ...jokeData,
+      hasBeenSwiped: false,
+      hasBeenLiked: false,
+    });
   };
-  return new Dog(nextDogData);
-};
-
+  
 let suitor = null;
 
 // this function disables buttons and call's the suitor variable to access the getNewDog function to shift to a new dog
