@@ -36,11 +36,13 @@ const getNewDog = async () => {
     try {
       const userData = await fetchJson("https://randomuser.me/api/");
       const dogData = await fetchJson("https://dog.ceo/api/breeds/image/random");
-      const jokeData = await fetch("https://icanhazdadjoke.com", {
+      const jokeData =  fetch("https://icanhazdadjoke.com", {
         headers: {
           Accept: 'application/json',
         }
-      });
+      })
+    .then(res => res.json())
+    .then(data => data.joke)
   
       return new Dog({
         name: userData.results[0].name.first,
@@ -76,14 +78,6 @@ const dogTransition = async () => {
 
 likeBtn.addEventListener("click", async () => {
   await dogTransition();
-  fetch("https://icanhazdadjoke.com", {
-        headers: {
-          Accept: 'application/json',
-        }
-      })
-    .then(res => res.json())
-    .then(data => console.log(data.joke))
-
   suitor.hasBeenLiked = true;
   document.getElementById("liked").style.visibility = "visible";
   new Audio("/bowwow.mp3").play();
