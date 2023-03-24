@@ -32,11 +32,15 @@ likeBtn.addEventListener('click', async () => {
 
     const response = await fetch("http://icanhazdadjoke.com", {
         headers: {
-            Accept: "application/json",
-        },
+            Accept: "application/json"
+        }
       });
-      const joke = response.json();
-      console.log(joke);
+      const joke = await response.json();
+      if (dadJokeJSON.status === 200) {
+        console.log(joke)
+    } else {
+        return "Error retrieving dad joke!"
+    }
 
     dogTransition()
     suitor.hasBeenLiked = true
