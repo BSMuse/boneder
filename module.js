@@ -30,7 +30,7 @@ likeBtn.addEventListener('click', async () => {
     .then(res => res.json())
     .then(data => console.log(data))
 
-    const response = await fetch("http://icanhazdadjoke.com", {
+    const response = await fetch("https://icanhazdadjoke.com", {
         headers: {
             Accept: "application/json"
         }
