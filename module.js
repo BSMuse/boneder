@@ -22,6 +22,19 @@ const dogTransition = () => {
 }
 
 likeBtn.addEventListener('click', () => {
+    
+    fetch("https://randomuser.me/api/")
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+    fetch("https://icanhazdadjoke.com/")
+    .then(res => res.json())
+    .then(data => console.log(data))
+
     dogTransition()
     suitor.hasBeenLiked = true
     document.getElementById('liked').style.visibility = 'visible'
@@ -58,7 +71,9 @@ const render = () => {
         </div>` 
     :  document.querySelector(".contain-data").innerHTML = suitor.getDogHtml()
 } 
+// https://randomuser.me/api/ - Name and age
+// https://dog.ceo/api/breeds/image/random - Dog picture 
+// https://icanhazdadjoke.com/ - Dad Joke
 
-// https://dog.ceo/api/breeds/image/random
 
 render()
