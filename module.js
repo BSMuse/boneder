@@ -110,5 +110,5 @@ const render = async () => {
   document.querySelector(".contain-data").innerHTML = dogHtml;
 };
 
-dogTransition();
+await dogTransition();
 render();
