@@ -31,7 +31,9 @@ likeBtn.addEventListener('click', async () => {
     .then(data => console.log(data))
 
     const response = await fetch("http://icanhazdadjoke.com", {
-        headers: {},
+        headers: {
+            Accept: "application/json",
+        },
       });
       const joke = response.json();
       console.log(joke);
