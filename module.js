@@ -35,7 +35,7 @@ const getNewDog = async () => {
             await fetch("https://randomuser.me/api/")
             .then(res => res.json())
             .then(data => (data.results[0].dob.age)),
-        bio: bioJoke(),
+        bio: await bioJoke(),
         hasBeenSwiped: false,
         hasBeenLiked: false
     }
