@@ -7,7 +7,7 @@ const dogs = [
         hasBeenSwiped: false,
         hasBeenLiked: false
     },{
-        name: "Bella",
+        name: "Nate",
         avatar: "images/dog-bella.jpg",
         age: 43,
         bio: "Did you hear that the police have a warrant out on a midget psychic ripping people off? It reads “Small medium at large.”",
