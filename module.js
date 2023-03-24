@@ -24,11 +24,11 @@ const dogTransition = () => {
 likeBtn.addEventListener('click', async () => {
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
-    .then(data => console.log(data[0].results.name.first))
+    .then(data => console.log(data[0])
 
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
-    .then(data => console.log(data[0].results.dob.age))
+    .then(data => console.log(data[0])
 
     fetch("https://dog.ceo/api/breeds/image/random")
     .then(res => res.json())
