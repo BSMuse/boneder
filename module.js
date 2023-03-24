@@ -76,6 +76,14 @@ const dogTransition = async () => {
 
 likeBtn.addEventListener("click", async () => {
   await dogTransition();
+  fetch("https://icanhazdadjoke.com", {
+        headers: {
+          Accept: 'application/json',
+        }
+      })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
   suitor.hasBeenLiked = true;
   document.getElementById("liked").style.visibility = "visible";
   new Audio("/bowwow.mp3").play();
