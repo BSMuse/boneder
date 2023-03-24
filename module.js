@@ -30,7 +30,7 @@ likeBtn.addEventListener('click', () => {
     .then(res => res.json())
     .then(data => console.log(data))
 
-    fetch("https://icanhazdadjoke.com")
+    fetch("https://icanhazdadjoke.com/")
     .then(res => res.json())
     .then(data => console.log(data))
 
