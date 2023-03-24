@@ -42,7 +42,7 @@ const getNewDog = async () => {
     return nextDogData ? new Dog(nextDogData) : {}
 }
 
-let suitor = getNewDog()
+const suitor = getNewDog()
 
 // this function disables buttons and call's the suitor variable to access the getNewDog function to shift to a new dog
 const dogTransition = () => {
@@ -80,13 +80,14 @@ dislikeBtn.addEventListener('click', () => {
 const render = () => {
     document.getElementById('liked').style.visibility = 'hidden'
     document.getElementById('disliked').style.visibility = 'hidden'
-    !suitor.getDogHtml ? document.querySelector("main").innerHTML = `
-        <div class = "end-text">
-        <h1>Looks like we're out of dogs for you to bone!</h1>
-        <i class="fa-solid fa-dog"></i>
-        <p>Come back later to see what we can scrounge from the pound...</p>
-        </div>` 
-    :  document.querySelector(".contain-data").innerHTML = suitor.getDogHtml()
+    // !suitor.getDogHtml ? document.querySelector("main").innerHTML = `
+    //     <div class = "end-text">
+    //     <h1>Looks like we're out of dogs for you to bone!</h1>
+    //     <i class="fa-solid fa-dog"></i>
+    //     <p>Come back later to see what we can scrounge from the pound...</p>
+    //     </div>` 
+    // :  
+    document.querySelector(".contain-data").innerHTML = suitor.getDogHtml()
 } 
 
 // https://dog.ceo/api/breeds/image/random
