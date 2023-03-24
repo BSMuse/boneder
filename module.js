@@ -4,37 +4,26 @@ const likeBtn = document.getElementById("like-btn");
 const dislikeBtn = document.getElementById("dislike-btn");
 
 const getNewDog = async () => {
-    const [userData, dogData, jokeData] = await Promise.all([
-      fetch('https://randomuser.me/api/')
-        .then(res => res.json())
-        .then(data => ({
-          name: data.results[0].name.first,
-          age: data.results[0].dob.age,
-        })),
-      fetch('https://dog.ceo/api/breeds/image/random')
-        .then(res => res.json())
-        .then(data => ({
-          avatar: data.message,
-        })),
-      fetch('https://icanhazdadjoke.com', {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-        .then(res => res.json())
-        .then(data => ({
-          bio: data.joke,
-        })),
-    ]);
-  
-    return new Dog({
-      ...userData,
-      ...dogData,
-      ...jokeData,
-      hasBeenSwiped: false,
-      hasBeenLiked: false,
-    });
-  };
+  const response = await fetch('https://randomuser.me/api/');
+  const userData = await response.json();
+  const dogResponse = await fetch('https://dog.ceo/api/breeds/image/random');
+  const dogData = await dogResponse.json();
+  const jokeResponse = await fetch('https://icanhazdadjoke.com', {
+    headers: {
+      Accept: 'application/json',
+    },
+  });
+  const jokeData = await jokeResponse.json();
+
+  return new Dog({
+    name: userData.results[0].name.first,
+    age: userData.results[0].dob.age,
+    avatar: dogData.message,
+    bio: jokeData.joke,
+    hasBeenSwiped: false,
+    hasBeenLiked: false,
+  });
+};
 
 let suitor = null;
 
@@ -71,19 +60,19 @@ dislikeBtn.addEventListener("click", async () => {
 
 // render function allows the "stamps" to disappear and set new dog data to method in dog.js
 const render = async () => {
-    if (!suitor) {
-      document.querySelector(".contain-data").innerHTML = `
-        <div class="no-data">
-          <p>No more dogs to show!</p>
-        </div>
-      `;
-      return;
-    }
-    document.getElementById("liked").style.visibility = "hidden";
-    document.getElementById("disliked").style.visibility = "hidden";
-    document.querySelector(".contain-data").innerHTML = await suitor.getDogHtml();
-  };
-  
-  // initial render
-  dogTransition();
-  render();
+  if (!suitor) {
+    document.querySelector(".contain-data").innerHTML = `
+      <div class="no-data">
+        <p>No more dogs to show!</p>
+      </div>
+    `;
+    return;
+  }
+  document.getElementById("liked").style.visibility = "hidden";
+  document.getElementById("disliked").style.visibility = "hidden";
+  document.querySelector(".contain-data").innerHTML = await suitor.getDogHtml();
+};
+
+// initial render
+dogTransition();
+render();
