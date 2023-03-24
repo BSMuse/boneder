@@ -33,23 +33,28 @@ const fetchJson = async (url) => {
 };
 
 const getNewDog = async () => {
-  const userData = await fetchJson("https://randomuser.me/api/");
-  const dogData = await fetchJson("https://dog.ceo/api/breeds/image/random");
-  const jokeData = await fetchJson("https://icanhazdadjoke.com");
-
-  if (!userData || !dogData || !jokeData) {
-    return null;
-  }
-
-  return new Dog({
-    name: userData.results[0].name.first,
-    age: userData.results[0].dob.age,
-    avatar: dogData.message,
-    bio: jokeData.joke,
-    hasBeenSwiped: false,
-    hasBeenLiked: false,
-  });
-};
+    try {
+      const userData = await fetchJson("https://randomuser.me/api/");
+      const dogData = await fetchJson("https://dog.ceo/api/breeds/image/random");
+      const jokeData = await fetchJson("https://icanhazdadjoke.com", {
+        headers: {
+          Accept: 'application/json',
+        }
+      });
+  
+      return new Dog({
+        name: userData.results[0].name.first,
+        age: userData.results[0].dob.age,
+        avatar: dogData.message,
+        bio: jokeData.joke,
+        hasBeenSwiped: false,
+        hasBeenLiked: false,
+      });
+    } catch (error) {
+      console.error(`Failed to fetch data: ${error}`);
+      throw error;
+    }
+  };
 
 let suitor = null;
 
