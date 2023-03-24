@@ -95,6 +95,7 @@ dislikeBtn.addEventListener("click", async () => {
 });
 
 const render = async () => {
+  await dogTransition();
   if (!suitor) {
     document.querySelector(".contain-data").innerHTML = `
       <div class="no-data">
@@ -110,5 +111,4 @@ const render = async () => {
   document.querySelector(".contain-data").innerHTML = dogHtml;
 };
 
-await dogTransition();
 render();
