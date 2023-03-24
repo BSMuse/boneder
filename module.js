@@ -82,7 +82,7 @@ likeBtn.addEventListener("click", async () => {
         }
       })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data.joke))
 
   suitor.hasBeenLiked = true;
   document.getElementById("liked").style.visibility = "visible";
