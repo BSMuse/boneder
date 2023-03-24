@@ -3,20 +3,6 @@ import Dog from '/dog.js'
 const likeBtn = document.getElementById("like-btn");
 const dislikeBtn = document.getElementById("dislike-btn");
 
-const bioJoke = async () => {
-  const response = await fetch("https://icanhazdadjoke.com", {
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const data = await response.json();
-  if (response.ok) { // Use the 'ok' property instead of 'status === 200'
-    return data.joke;
-  } else {
-    throw new Error("Error retrieving dad joke!");
-  }
-};
-
 const getNewDog = async () => {
     const [userData, dogData, jokeData] = await Promise.all([
       fetch('https://randomuser.me/api/')
