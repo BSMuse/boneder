@@ -39,7 +39,7 @@ const getNewDog = async () => {
         hasBeenSwiped: false,
         hasBeenLiked: false
     }
-    return nextDogData ? new Dog(nextDogData) : {}
+    return Object.keys(nextDogData).length ? new Dog(nextDogData) : {}
 }
 
 let suitor = getNewDog()
