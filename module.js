@@ -1,5 +1,4 @@
-import Dog from '/dog.js' 
-import dogs from '/data.js'
+import Dog from '/dog.js'
 
 const likeBtn = document.getElementById("like-btn")
 const dislikeBtn = document.getElementById('dislike-btn')
@@ -7,8 +6,39 @@ const dislikeBtn = document.getElementById('dislike-btn')
 // this function allows each of the buttons to shift through the objects in data's array
 // ternary operator will return the next dog object through the Dog class if there is data left in the object after shift
 // otherwise, it returns an empty object
-const getNewDog = () => {
-    const nextDogData = dogs.shift()
+
+const bioJoke = async () => {
+    const response = await fetch("https://icanhazdadjoke.com", {
+        headers: {
+            Accept: "application/json"
+        }
+    });
+    const joke = await response.json();
+    if (response.status === 200) {
+        (joke.joke);
+    } else {
+        return "Error retrieving dad joke!";
+    }
+} 
+
+const getNewDog = async () => {
+    const nextDogData = {
+        name: 
+            await fetch("https://randomuser.me/api/")
+            .then(res => res.json())
+            .then(data => (data.results[0].name.first)),
+        avatar: 
+            await fetch("https://dog.ceo/api/breeds/image/random")
+            .then(res => res.json())
+            .then(data => (data.message)),
+        age: 
+            await fetch("https://randomuser.me/api/")
+            .then(res => res.json())
+            .then(data => (data.results[0].dob.age)),
+        bio: bioJoke(),
+        hasBeenSwiped: false,
+        hasBeenLiked: false
+    }
     return nextDogData ? new Dog(nextDogData) : {}
 }
 
@@ -22,30 +52,6 @@ const dogTransition = () => {
 }
 
 likeBtn.addEventListener('click', async () => {
-    fetch("https://randomuser.me/api/")
-    .then(res => res.json())
-    .then(data => console.log(data.results[0].name.first))
-
-    fetch("https://randomuser.me/api/")
-    .then(res => res.json())
-    .then(data => console.log(data.results[0].dob.age))
-
-    fetch("https://dog.ceo/api/breeds/image/random")
-    .then(res => res.json())
-    .then(data => console.log(data.message))
-
-    const response = await fetch("https://icanhazdadjoke.com", {
-        headers: {
-            Accept: "application/json"
-        }
-    });
-    const joke = await response.json();
-    if (response.status === 200) {
-        console.log(joke.joke);
-    } else {
-        return "Error retrieving dad joke!";
-    }
-
     dogTransition()
     suitor.hasBeenLiked = true
     document.getElementById('liked').style.visibility = 'visible'
