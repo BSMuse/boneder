@@ -48,7 +48,7 @@ const getNewDog = async () => {
         name: userData.results[0].name.first,
         age: userData.results[0].dob.age,
         avatar: dogData.message,
-        bio: jokeData.joke,
+        bio: jokeData,
         hasBeenSwiped: false,
         hasBeenLiked: false,
       });
