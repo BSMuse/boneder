@@ -9,7 +9,8 @@ class Dog {
             <div class="details">
                 <p id="name">${name}, ${age}</p>
                 <p id="tagline">${bio}</p>
-            </div>`
+            </div>
+            `
     }
 }
 
