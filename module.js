@@ -60,19 +60,20 @@ dislikeBtn.addEventListener("click", async () => {
 
 // render function allows the "stamps" to disappear and set new dog data to method in dog.js
 const render = async () => {
-//   if (!suitor) {
-//     document.querySelector(".contain-data").innerHTML = `
-//       <div class="no-data">
-//         <p>No more dogs to show!</p>
-//       </div>
-//     `;
-//     return;
-//   }
-  document.getElementById("liked").style.visibility = "hidden";
-  document.getElementById("disliked").style.visibility = "hidden";
-  document.querySelector(".contain-data").innerHTML = await suitor.getDogHtml();
-};
-
+    if (!suitor) {
+      document.querySelector(".contain-data").innerHTML = `
+        <div class="no-data">
+          <p>No more dogs to show!</p>
+        </div>
+      `;
+      return;
+    }
+    document.getElementById("liked").style.visibility = "hidden";
+    document.getElementById("disliked").style.visibility = "hidden";
+    const dogHtml = suitor.getDogHtml ? await suitor.getDogHtml() : '';
+    document.querySelector(".contain-data").innerHTML = dogHtml;
+  };
+  
 // initial render
 dogTransition();
 render();
