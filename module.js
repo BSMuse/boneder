@@ -3,10 +3,6 @@ import Dog from '/dog.js'
 const likeBtn = document.getElementById("like-btn");
 const dislikeBtn = document.getElementById("dislike-btn");
 
-// this function allows each of the buttons to shift through the objects in data's array
-// ternary operator will return the next dog object through the Dog class if there is data left in the object after shift
-// otherwise, it returns an empty object
-
 const bioJoke = async () => {
   const response = await fetch("https://icanhazdadjoke.com", {
     headers: {
@@ -53,7 +49,7 @@ const getNewDog = async () => {
       hasBeenLiked: false,
     });
   };
-  
+
 let suitor = null;
 
 // this function disables buttons and call's the suitor variable to access the getNewDog function to shift to a new dog
@@ -88,7 +84,6 @@ dislikeBtn.addEventListener("click", async () => {
 });
 
 // render function allows the "stamps" to disappear and set new dog data to method in dog.js
-// ternary operator will detect if there is no new dog data to post, and if so, post the html below
 const render = async () => {
     if (!suitor) {
       document.querySelector(".contain-data").innerHTML = `
