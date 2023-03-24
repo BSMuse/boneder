@@ -24,11 +24,15 @@ const dogTransition = () => {
 likeBtn.addEventListener('click', async () => {
     fetch("https://randomuser.me/api/")
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data.results.name.first))
+
+    fetch("https://randomuser.me/api/")
+    .then(res => res.json())
+    .then(data => console.log(data.results.dob.age))
 
     fetch("https://dog.ceo/api/breeds/image/random")
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data.message))
 
     const response = await fetch("https://icanhazdadjoke.com", {
         headers: {
@@ -37,7 +41,7 @@ likeBtn.addEventListener('click', async () => {
     });
     const joke = await response.json();
     if (response.status === 200) {
-        console.log(joke);
+        console.log(joke.joke);
     } else {
         return "Error retrieving dad joke!";
     }
