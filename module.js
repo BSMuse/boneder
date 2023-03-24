@@ -57,6 +57,8 @@ const render = () => {
         <p>Come back later to see what we can scrounge from the pound...</p>
         </div>` 
     :  document.querySelector(".contain-data").innerHTML = suitor.getDogHtml()
-}
+} 
+
+// https://dog.ceo/api/breeds/image/random
 
 render()
