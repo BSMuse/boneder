@@ -34,12 +34,12 @@ likeBtn.addEventListener('click', async () => {
         headers: {
             Accept: "application/json"
         }
-      });
-      const joke = await response.json();
-      if (dadJokeJSON.status === 200) {
-        console.log(joke)
+    });
+    const joke = await response.json();
+    if (response.status === 200) {
+        console.log(joke);
     } else {
-        return "Error retrieving dad joke!"
+        return "Error retrieving dad joke!";
     }
 
     dogTransition()
