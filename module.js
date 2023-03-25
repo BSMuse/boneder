@@ -99,12 +99,12 @@ dislikeBtn.addEventListener("click", async () => {
 });
 
 const render = async () => {
-    document.querySelector(".contain-data").innerHTML = `
-    <div class = "end-text">
-        <h1>Looking for dogs for you to bone!</h1>
-        <i class="fa-solid fa-dog"></i>
-        <p>Scrounging from the pound...</p>
-    </div>`;
+    // document.querySelector(".contain-data").innerHTML = `
+    // <div class = "end-text">
+    //     <h1>Looking for dogs for you to bone!</h1>
+    //     <i class="fa-solid fa-dog"></i>
+    //     <p>Scrounging from the pound...</p>
+    // </div>`;
   await dogTransition();
   if (!suitor) {
     document.querySelector(".contain-data").innerHTML = `
