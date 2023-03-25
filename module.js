@@ -74,6 +74,9 @@ dislikeBtn.addEventListener("click", async () => {
   document.getElementById("disliked").style.visibility = "visible";
   new Audio("/bark.mp3").play();
   setTimeout(() => {
+    document.querySelector(".contain-data").innerHTML = null;
+  }, 1000);
+  setTimeout(() => {
     render();
   }, 1500);
 });
