@@ -9,7 +9,6 @@ body {
     flex-direction: column;
     align-items: center;
     zoom: 75%;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.63);
 }
 
 /* Layout */
@@ -116,15 +115,17 @@ footer {
 
 #name {
     font-weight: 600;
-    font-size: 32px;
-    margin-bottom: -25px;
+    font-size: 2rem;
+    margin-bottom: -1.5rem;
     color: #F8F8F8;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.63);
 }
 
 #tagline{
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #F5F5F5;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.63);
 }
 
 i{
