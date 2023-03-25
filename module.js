@@ -55,6 +55,7 @@ const enableButtons = () => {
 };
 
 const dogTransition = async () => {
+  disableButtons();
   suitor = await getNewDog();
 };
 
@@ -73,12 +74,9 @@ dislikeBtn.addEventListener("click", async () => {
   suitor.hasBeenSwiped = true;
   document.getElementById("disliked").style.visibility = "visible";
   new Audio("/bark.mp3").play();
-  render();
   setTimeout(() => {
-    document.getElementById("liked").style.visibility = "hidden";
-    document.getElementById("disliked").style.visibility = "hidden";
-    document.querySelector(".contain-data").innerHTML = "";
-  }, 500);
+    render();
+  }, 1500);
 });
 
 const render = async () => {
@@ -93,11 +91,11 @@ const render = async () => {
     `;
     return;
   }
+  document.getElementById("liked").style.visibility = "hidden";
+  document.getElementById("disliked").style.visibility = "hidden";
   const dogHtml = await suitor.getDogHtml();
-  setTimeout(() => {
-    document.querySelector(".contain-data").innerHTML = dogHtml;
-    enableButtons();
-  }, 1500);
+  document.querySelector(".contain-data").innerHTML = dogHtml;
+  enableButtons();
 };
 
 render();
