@@ -75,11 +75,6 @@ dislikeBtn.addEventListener("click", async () => {
   render();
 });
 
-function imgError(img) {
-  img.onerror = null; // prevent infinite loop
-  img.src = "./images/dog-rex.jpg"; // replace with a default/error image
-}
-
 const render = async () => {
   await dogTransition();
   if (!suitor) {
