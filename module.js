@@ -74,7 +74,9 @@ dislikeBtn.addEventListener("click", async () => {
   document.getElementById("disliked").style.visibility = "visible";
   new Audio("/bark.mp3").play();
   setTimeout(() => {
-    document.querySelector(".contain-data").innerHTML = null;
+    document.querySelector(".contain-data").innerHTML = "";
+    document.getElementById("liked").style.visibility = "hidden";
+    document.getElementById("disliked").style.visibility = "hidden";
   }, 1000);
   setTimeout(() => {
     render();
@@ -95,8 +97,6 @@ const render = async () => {
   }
   const dogHtml = await suitor.getDogHtml();
   setTimeout(() => {
-    document.getElementById("liked").style.visibility = "hidden";
-    document.getElementById("disliked").style.visibility = "hidden";
     enableButtons();
     document.querySelector(".contain-data").innerHTML = dogHtml;
   }, 1500);
