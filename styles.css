@@ -47,7 +47,7 @@ main {
     margin-left: 10px;
     z-index: 2; 
     position: absolute;
-    /* top: 1500px; */
+    top: 1500px;
     bottom: 0;
     right: 1;
     left:1;
@@ -193,7 +193,6 @@ img {
 }
 
 #dog {
-  z-index: 1;
   border-radius: 15px;
   height: 80vh;
 }
