@@ -96,7 +96,7 @@ const render = async () => {
     document.getElementById("disliked").style.visibility = "hidden";
     enableButtons();
     document.querySelector(".contain-data").innerHTML = dogHtml;
-  }, 1000);
+  }, 1500);
 };
 
 render();
