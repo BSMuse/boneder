@@ -46,6 +46,7 @@ main {
     justify-content: end; 
     margin-left: 10px;
     z-index: 2; 
+    position: absolute;
     bottom: 0;
     right: 1;
     left:1;
