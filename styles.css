@@ -53,6 +53,10 @@ main {
     color: white;
 }
 
+.contain-data {
+    z-index: 1;
+}
+
 .end-text {
     border: #F8F8F8 8px solid;
     text-align: center;
