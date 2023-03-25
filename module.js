@@ -73,12 +73,6 @@ const enableButtons = () => {
 };
 
 const dogTransition = async () => {
-    document.querySelector(".contain-data").innerHTML = `
-        <div class = "end-text">
-            <h1>Looks like we're out of dogs for you to bone!</h1>
-            <i class="fa-solid fa-dog"></i>
-            <p>Come back later to see what we can scrounge from the pound...</p>
-        </div>`;
   disableButtons();
   suitor = await getNewDog();
   enableButtons();
@@ -105,6 +99,12 @@ dislikeBtn.addEventListener("click", async () => {
 });
 
 const render = async () => {
+    document.querySelector(".contain-data").innerHTML = `
+    <div class = "end-text">
+        <h1>Looks like we're out of dogs for you to bone!</h1>
+        <i class="fa-solid fa-dog"></i>
+        <p>Come back later to see what we can scrounge from the pound...</p>
+    </div>`;
   await dogTransition();
   if (!suitor) {
     document.querySelector(".contain-data").innerHTML = `
