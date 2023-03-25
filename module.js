@@ -66,7 +66,6 @@ likeBtn.addEventListener("click", async () => {
   new Audio("/bowwow.mp3").play();
   setTimeout(() => {
     render();
-    enableButtons();
   }, 1500);
 });
 
@@ -96,6 +95,7 @@ const render = async () => {
   document.getElementById("disliked").style.visibility = "hidden";
   const dogHtml = await suitor.getDogHtml();
   document.querySelector(".contain-data").innerHTML = dogHtml;
+  enableButtons();
 };
 
 render();
