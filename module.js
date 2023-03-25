@@ -55,12 +55,11 @@ const enableButtons = () => {
 };
 
 const dogTransition = async () => {
-  disableButtons();
   suitor = await getNewDog();
 };
 
 likeBtn.addEventListener("click", async () => {
-  await dogTransition();
+  disableButtons();
   suitor.hasBeenLiked = true;
   document.getElementById("liked").style.visibility = "visible";
   new Audio("/bowwow.mp3").play();
@@ -70,7 +69,7 @@ likeBtn.addEventListener("click", async () => {
 });
 
 dislikeBtn.addEventListener("click", async () => {
-  await dogTransition();
+  disableButtons();
   suitor.hasBeenSwiped = true;
   document.getElementById("disliked").style.visibility = "visible";
   new Audio("/bark.mp3").play();
