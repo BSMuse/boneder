@@ -124,7 +124,7 @@ footer {
 #tagline{
     font-weight: 400;
     font-size: 24px;
-    color: #B8B8B8;
+    color: #F5F5F5;
 }
 
 i{
@@ -181,6 +181,7 @@ img {
 
 #dog {
   border-radius: 15px;
+  height: 1503px;
 }
 
 .profile, .chat {
