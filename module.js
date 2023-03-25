@@ -92,9 +92,11 @@ const render = async () => {
   }
   document.getElementById("liked").style.visibility = "hidden";
   document.getElementById("disliked").style.visibility = "hidden";
-  const dogHtml = await suitor.getDogHtml();
-  document.querySelector(".contain-data").innerHTML = dogHtml;
   enableButtons();
+  const dogHtml = await suitor.getDogHtml();
+  setTimeout(() => {
+    document.querySelector(".contain-data").innerHTML = dogHtml;
+  }, 1000);
 };
 
 render();
