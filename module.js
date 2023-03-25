@@ -93,10 +93,10 @@ const render = async () => {
     `;
     return;
   }
+  document.getElementById("liked").style.visibility = "hidden";
+  document.getElementById("disliked").style.visibility = "hidden";
   const dogHtml = await suitor.getDogHtml();
   setTimeout(() => {
-    document.getElementById("liked").style.visibility = "hidden";
-    document.getElementById("disliked").style.visibility = "hidden";
     enableButtons();
     document.querySelector(".contain-data").innerHTML = dogHtml;
   }, 1500);
