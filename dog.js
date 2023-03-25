@@ -7,7 +7,7 @@ class Dog {
       const { name, avatar, age, bio } = this;
   
       return `
-        <img id="dog" src="/images/dog_rex.jpg" onerror="/images/dog-rex.jpg")>
+        <img id="dog" src="/images/dog_rex.jpg" onerror="this.src='/images/dog-rex.jpg';")>
         <div class="details">
           <p id="name">${name}, ${age}</p>
           <p id="tagline">${bio}</p>
