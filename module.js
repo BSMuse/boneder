@@ -64,9 +64,7 @@ likeBtn.addEventListener("click", async () => {
   suitor.hasBeenLiked = true;
   document.getElementById("liked").style.visibility = "visible";
   new Audio("/bowwow.mp3").play();
-  setTimeout(() => {
-    render();
-  }, 1500);
+  render();
 });
 
 dislikeBtn.addEventListener("click", async () => {
