@@ -1,25 +1,7 @@
-// import Dog from '/dog.js'
+import Dog from '/dog.js'
 
 const likeBtn = document.getElementById("like-btn");
 const dislikeBtn = document.getElementById("dislike-btn");
-
-class Dog {
-  constructor(data) {
-    Object.assign(this, data);
-  }
-
-  getDogHtml() {
-    const { name, avatar, age, bio } = this;
-
-    return `
-      <img id="dog" src="${avatar}">
-      <div class="details">
-        <p id="name">${name}, ${age}</p>
-        <p id="tagline">${bio}</p>
-      </div>
-    `;
-  }
-}
 
 const fetchJson = async (url) => {
   try {
@@ -75,7 +57,6 @@ const enableButtons = () => {
 const dogTransition = async () => {
   disableButtons();
   suitor = await getNewDog();
-  enableButtons();
 };
 
 likeBtn.addEventListener("click", async () => {
@@ -85,6 +66,7 @@ likeBtn.addEventListener("click", async () => {
   new Audio("/bowwow.mp3").play();
   setTimeout(() => {
     render();
+    enableButtons();
   }, 1500);
 });
 
